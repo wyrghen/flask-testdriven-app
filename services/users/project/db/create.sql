@@ -1,0 +1,3 @@
+CREATE DATABASE users_prod;
+CREATE DATABASE users_def;
+CREATE DATABASE users_test;
