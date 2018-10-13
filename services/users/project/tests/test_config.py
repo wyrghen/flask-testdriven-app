@@ -10,6 +10,8 @@ app = create_app()
 
 
 class TestDevelopmentConfig(TestCase):
+    """Test development configuration."""
+
     def create_app(self):
         app.config.from_object(
             'project.config.DevelopmentConfig'
@@ -17,6 +19,7 @@ class TestDevelopmentConfig(TestCase):
         return app
 
     def test_app_is_development(self):
+        """Development configuration is set properly."""
         self.assertTrue(
             app.config['SECRET_KEY'] == 'my_precious'
         )
@@ -28,6 +31,8 @@ class TestDevelopmentConfig(TestCase):
 
 
 class TestTestingConfig(TestCase):
+    """Test testing configuration."""
+
     def create_app(self):
         app.config.from_object(
             'project.config.TestConfig'
@@ -35,6 +40,7 @@ class TestTestingConfig(TestCase):
         return app
 
     def test_app_is_testing(self):
+        """Testing configuration is set properly."""
         self.assertTrue(
             app.config['SECRET_KEY'] == 'my_precious'
         )
@@ -47,6 +53,8 @@ class TestTestingConfig(TestCase):
 
 
 class TestProductionConfig(TestCase):
+    """Test production config."""
+
     def create_app(self):
         app.config.from_object(
             'project.config.ProductionConfig'
@@ -54,6 +62,7 @@ class TestProductionConfig(TestCase):
         return app
 
     def test_app_is_production(self):
+        """Production configuration is set properly."""
         self.assertTrue(
             app.config['SECRET_KEY'] == 'my_precious'
         )

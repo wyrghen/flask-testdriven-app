@@ -1,6 +1,8 @@
 from flask.cli import FlaskGroup
 from project import create_app, db
 
+from project.api.models import User
+
 import unittest
 
 app = create_app()
@@ -23,6 +25,20 @@ def test():
     if result.wasSuccessful():
         return 0
     return 1
+
+
+@cli.command()
+def seed_db():
+    """Seeds the database."""
+    db.session.add(User(
+        username='ala',
+        email='ma@kota.pl'
+    ))
+    db.session.add(User(
+        username='mwolodyjowski',
+        email='mwolodyjowski@szabelka.pl'
+    ))
+    db.session.commit()
 
 
 if __name__ == '__main__':
